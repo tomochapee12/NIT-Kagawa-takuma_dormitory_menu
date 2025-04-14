@@ -48,7 +48,7 @@ def post_image_to_discord(image, webhook_url):
             "file": ("kondate.png", image_binary, "image/png")
         }
         data = {
-            "content": "今週の献立表 🥢"
+            "content": "今週の献立表"
         }
         response = post(webhook_url, data=data, files=files)
         response.raise_for_status()

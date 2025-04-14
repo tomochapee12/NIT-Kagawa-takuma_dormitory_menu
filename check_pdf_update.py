@@ -1,4 +1,4 @@
-import requests
+import requests, sys
 import os
 from datetime import datetime
 
@@ -43,6 +43,8 @@ def is_pdf_updated():
 if __name__ == "__main__":
     if is_pdf_updated():
         print("PDFが更新されました！")
+        sys.exit(0)
         # ここでPDFの処理を開始する（ダウンロード、画像化、Discord送信など）
     else:
         print("PDFは更新されていません。")
+        sys.exit(1)

@@ -2,7 +2,7 @@ name: Post Weekly Kondate to Discord
 
 on:
   schedule:
-    - cron: '0 9 * * 1'  # 毎週月曜9時（UTC）
+    - cron: '0 0,18 * * *' #毎日
   workflow_dispatch:
 
 jobs:

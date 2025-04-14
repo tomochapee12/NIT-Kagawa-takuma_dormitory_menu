@@ -1,0 +1,2 @@
+# NIT-Kagawa-takuma_dormitory_kondate
+香川高等専門学校詫間キャンパスの寮食献立

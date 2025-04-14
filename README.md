@@ -2,4 +2,7 @@
 香川高等専門学校詫間キャンパスの寮食献立をDiscordのWebhookを使用して通知するツール
 
 ## 概要
-  * https://www.kagawa-nct.ac.jp/dormitoryE/kondate.pdf に献立のPDFがあるので毎日0時と18時にURLをGithub Actionsで自動的に確認し、サイトが更新されていたらPDFを画像に変換しDiscordサーバーへ通知を行う。
+  * https://www.kagawa-nct.ac.jp/dormitoryE/kondate.pdf に献立のPDFがあるので毎日0時と18時にURLをGithub Actionsで自動的に確認し、サイトが更新されていたらPDFを画像に変換しDiscordサーバーへ通知を行うスクリプト。
+
+>[!TIP]
+>ローカルで使用するときは自分のWebhookを入力する必要があります。

@@ -31,14 +31,18 @@ jobs:
       - name: Check if PDF is updated
         run: python check_pdf_update.py
 
-      - name: Commit last_modified.txt if changed
-        if: success()
+      - name: Commit last_modified.txt if updated
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "github-actions"
           git add last_modified.txt
-          git commit -m "Update last_modified.txt"
-          git push
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Update last_modified.txt"
+            git push
+          else
+            echo "No changes to commit"
+          fi
 
       - name: Run script if PDF is updated
         if: success()

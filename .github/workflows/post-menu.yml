@@ -1,0 +1,25 @@
+name: Post Weekly Kondate to Discord
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # 毎週月曜朝9時 (UTCなので日本時間18時)
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  post-kondate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          python main.py

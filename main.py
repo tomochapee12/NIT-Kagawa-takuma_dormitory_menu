@@ -5,6 +5,8 @@ import os
 PDF_URL = "https://www.kagawa-nct.ac.jp/dormitoryE/kondate.pdf"
 WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 
+print("Webhook URL:", WEBHOOK_URL)
+
 def download_pdf(url, filename="kondate.pdf"):
     import requests
     r = requests.get(url)

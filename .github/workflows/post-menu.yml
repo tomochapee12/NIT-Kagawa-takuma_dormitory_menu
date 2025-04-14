@@ -29,5 +29,6 @@ jobs:
         run: python check_pdf_update.py
 
       - name: Run script if PDF is updated
-        if: success()  # 成功した場合にのみ実行
-        run: python main.py
+        if: success()
+        run: DISCORD_WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }} python main.py
+      

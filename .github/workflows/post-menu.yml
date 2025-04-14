@@ -1,5 +1,8 @@
 name: Post Weekly Kondate to Discord
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 0,18 * * *' #毎日
@@ -28,7 +31,18 @@ jobs:
       - name: Check if PDF is updated
         run: python check_pdf_update.py
 
+      - name: Commit last_modified.txt if changed
+        if: success()
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+          git add last_modified.txt
+          git commit -m "Update last_modified.txt"
+          git push
+
       - name: Run script if PDF is updated
         if: success()
-        run: DISCORD_WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }} python main.py
-      
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python main.py
+        

@@ -7,7 +7,7 @@
 >使用するときは自分のWebhookを入力する必要があります。
 
 ## 概要
-  * https://www.kagawa-nct.ac.jp/dormitoryE/kondate.pdf に献立のPDFがあるので毎日0時から4時間ごとにURLをGithub Actionsで自動的に確認し、サイトが更新されていたらPDFを画像に変換しDiscordサーバーへ通知を行うスクリプト。
+  * https://www.kagawa-nct.ac.jp/dormitoryE/kondate.pdf に献立のPDFがあるので毎日0時から6時間ごとにURLをGithub Actionsで自動的に確認し、サイトが更新されていたらPDFを画像に変換しDiscordサーバーへ通知を行うスクリプト。
 
 ## 使用方法
   1. このリポジトリをForkする。[![Fork](https://img.shields.io/badge/Fork--github?style=social&logo=github)](https://github.com/hayato2475/NIT-Kagawa-takuma_dormitory_menu/fork)

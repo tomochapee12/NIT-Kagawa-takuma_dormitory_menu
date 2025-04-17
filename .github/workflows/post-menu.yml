@@ -45,8 +45,12 @@ jobs:
           fi
 
       - name: Run script if PDF is updated
-        if: success()
+        if: always()
+        run: |
+          if [ -f updated.flag ]; then
+            python main.py
+          else
+            echo "PDFに更新がないため、処理をスキップします。"
+          fi
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python main.py
-        
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}       

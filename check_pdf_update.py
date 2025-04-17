@@ -4,6 +4,7 @@ from datetime import datetime
 
 PDF_URL = "https://www.kagawa-nct.ac.jp/dormitoryE/kondate.pdf"
 LAST_MODIFIED_FILE = "last_modified.txt"
+UPDATED_FLAG_FILE = "updated.flag"
 
 def get_last_modified(url):
     # HTTPヘッダで最終更新日時を取得
@@ -43,8 +44,9 @@ def is_pdf_updated():
 if __name__ == "__main__":
     if is_pdf_updated():
         print("PDFが更新されました！")
+        open(UPDATED_FLAG_FILE, "w").close()
         sys.exit(0)
         # ここでPDFの処理を開始する（ダウンロード、画像化、Discord送信など）
     else:
         print("PDFは更新されていません。")
-        sys.exit(1)
+        sys.exit(0)

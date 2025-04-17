@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 15,19,23,3,7,11 * * *'  # JSTの 0,4,8,12,16,20時（= UTC 15,19,23,3,7,11）
+    - cron: '0 15,21,3,9 * * *'  # JSTの 0,6,12,18時（= UTC 15,21,3,9）
   workflow_dispatch:
 
 jobs:
